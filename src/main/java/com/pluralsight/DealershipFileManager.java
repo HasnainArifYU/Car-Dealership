@@ -38,12 +38,11 @@ public class DealershipFileManager {
                 double price = Double.parseDouble(data[7]);
                 Vehicle vehicle = new Vehicle(vin, year, make, model, type, color, odo, price);
                 dealership.addVehicle(vehicle);
-
             }
         }  catch (Exception e) {
             System.err.println(e);
         }
-
+                
         return null;
     }
 }
