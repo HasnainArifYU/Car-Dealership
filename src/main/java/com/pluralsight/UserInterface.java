@@ -64,5 +64,10 @@ public class UserInterface {
             }
         }
 
+        public void processAllVehiclesRequest(){
+            ArrayList<Vehicle> inventory = this.dealership.getAllVehicles();
+            displayVehicles(inventory);
+        }
+
 
 }
