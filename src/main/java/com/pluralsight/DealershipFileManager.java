@@ -16,14 +16,15 @@ public class DealershipFileManager {
                 return null; // Exit the method if file creation fails
             }
         }
+        Dealership dealership = null;
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
-            String[] dealershipInfoArr =  reader.readLine().split("\\|");
+            String[] dealershipInfoArr = reader.readLine().split("\\|");
             String dealershipName = dealershipInfoArr[0];
             String dealershipAddy = dealershipInfoArr[1];
             String dealershipNum = dealershipInfoArr[2];
-            Dealership dealership = new Dealership(dealershipName, dealershipAddy, dealershipNum);
-            while ((line = reader.readLine())!= null) {
+            dealership = new Dealership(dealershipName, dealershipAddy, dealershipNum);
+            while ((line = reader.readLine()) != null) {
                 String[] data = line.split("\\|");
                 if (data.length < 8) {
                     continue;
@@ -39,11 +40,11 @@ public class DealershipFileManager {
                 Vehicle vehicle = new Vehicle(vin, year, make, model, type, color, odo, price);
                 dealership.addVehicle(vehicle);
             }
-        }  catch (Exception e) {
+        } catch (Exception e) {
             System.err.println(e);
         }
+        return dealership;
 
-        return null;
     }
 
 }

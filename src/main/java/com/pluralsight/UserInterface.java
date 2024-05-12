@@ -18,13 +18,13 @@ public class UserInterface {
     }
 
     public void display() {
-        init();
+        this.init();
         Scanner scanner = new Scanner(System.in);
         boolean continueRunning = true;
 
         while (continueRunning) {
             System.out.println("Menu:");
-            System.out.println("1. Option 1");
+            System.out.println("1. Display All Vehicles ");
             System.out.println("2. Option 2");
             System.out.println("3. Option 3");
             System.out.println("4. Exit");
@@ -35,7 +35,7 @@ public class UserInterface {
             switch (choice) {
                 case 1:
                     System.out.println("You selected Option 1.");
-                    // Add more logic here as needed
+                    displayVehicles(this.dealership.getAllVehicles());
                     break;
                 case 2:
                     System.out.println("You selected Option 2.");
@@ -60,7 +60,7 @@ public class UserInterface {
     }
         private void displayVehicles(ArrayList<Vehicle> vehicles){
             for (Vehicle vehicle: vehicles) {
-                System.out.println("VIN : "+vehicle.getVin()+"Year : "+vehicle.getYear()+"Make : "+vehicle.getMake()+"Model : "+vehicle.getModel()+"Vehicle type : "+vehicle.getVehicleType()+"Color :"+vehicle.getColor()+"Odometer : "+vehicle.getOdometer()+"Price : $"+vehicle.getPrice());
+                System.out.println("VIN: "+vehicle.getVin()+"  "+"Year: "+vehicle.getYear()+"  "+"Make: "+vehicle.getMake()+"  "+"Model: "+vehicle.getModel()+"  "+"Vehicle type: "+vehicle.getVehicleType()+"  "+"Color: "+vehicle.getColor()+"  "+"Odometer: "+vehicle.getOdometer()+"  "+"Price: $"+vehicle.getPrice());
             }
         }
 
