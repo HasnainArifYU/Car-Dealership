@@ -1,8 +1,6 @@
 package com.pluralsight;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 import java.util.Scanner;
 
 import static com.pluralsight.DealershipFileManager.saveDealership;
@@ -10,7 +8,8 @@ import static com.pluralsight.DealershipFileManager.saveDealership;
 public class UserInterface {
 
     private Dealership dealership;
-
+    private ArrayList<Vehicle> cart = new ArrayList<>();
+    private double total = 0;
 
     public UserInterface() {
     }
@@ -24,7 +23,6 @@ public class UserInterface {
         this.init();
         Scanner scanner = new Scanner(System.in);
         boolean continueRunning = true;
-
         while (continueRunning) {
             System.out.println("Menu:");
             System.out.println("1. Find Vehicles By Price Range ");
@@ -45,34 +43,47 @@ public class UserInterface {
             switch (choice) {
                 case 1:
                     processGetByPriceRequest();
+                    addToCart(dealership.getAllVehicles());
                     break;
                 case 2:
                     System.out.println("You selected Option 2.");
                     processGetByMakeModelRequest();
+                    addToCart(dealership.getAllVehicles());
                     break;
                 case 3:
                     System.out.println("You selected Option 3.");
                     processGetByYearRequest();
+                    addToCart(dealership.getAllVehicles());
                     break;
                 case 4:
                     processGetByColorRequest();
+                    addToCart(dealership.getAllVehicles());
+
                     break;
                 case 5:
                     processGetByMileageRequest();
+                    addToCart(dealership.getAllVehicles());
                     break;
                 case 6:
                     processGetByTypeRequest();
+                    addToCart(dealership.getAllVehicles());
                     break;
 
                 case 7:
                     System.out.println("You selected Option 7.");
                     processAllVehiclesRequest();
+                    addToCart(dealership.getAllVehicles());
                     break;
                 case 8:
                     processAddVehiclesRequest();
                     break;
                 case 9:
                     processRemoveVehicleRequest();
+                    break;
+                case 10:
+                    displayCart(cart);
+                    processCheckOutRequest();
+
                     break;
                 case 99:
                     System.out.println("Exiting...");
@@ -98,6 +109,7 @@ public class UserInterface {
     public void processAllVehiclesRequest() {
         ArrayList<Vehicle> inventory = this.dealership.getAllVehicles();
         displayVehicles(inventory);
+
     }
 
     public void processGetByPriceRequest() {
@@ -171,6 +183,7 @@ public class UserInterface {
             System.out.println("VIN: " + vehicle.getVin() + "  " + "Year: " + vehicle.getYear() + "  " + "Make: " + vehicle.getMake() + "  " + "Model: " + vehicle.getModel() + "  " + "Vehicle type: " + vehicle.getVehicleType() + "  " + "Color: " + vehicle.getColor() + "  " + "Odometer: " + vehicle.getOdometer() + "  " + "Price: $" + vehicle.getPrice());
         }
     }
+
     public void processAddVehiclesRequest() {
         Scanner s = new Scanner(System.in);
         System.out.println("Please Enter the Vehicle VIN");
@@ -195,25 +208,61 @@ public class UserInterface {
         dealership.addVehicle(vehicle);
 
 
-
     }
+
     public void processRemoveVehicleRequest() {
         Scanner s = new Scanner(System.in);
         System.out.println("Please Enter the VIN of the Vehicle to remove : ");
         int VIN = s.nextInt();
         ArrayList<Vehicle> getVehicles = dealership.getAllVehicles();
         for (Vehicle vehicle : getVehicles) {
-            if (vehicle.getVin()==VIN) {
+            if (vehicle.getVin() == VIN) {
                 dealership.removeVehicle(vehicle);
                 break;
             }
         }
 
     }
+
+    public void processCheckOutRequest() {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Would you like to Check out? Y/N");
+        String ans = s.nextLine();
+        if (ans.equalsIgnoreCase("y")) {
+            System.out.println("You are now being checked out...");
+            System.out.println("Thank you for your purchase");
+            cart.clear();
+            total = 0;
+        }
+    }
+
+    public void displayCart(ArrayList<Vehicle> cart) {
+        for (Vehicle vehicle : cart) {
+            System.out.println("VIN: " + vehicle.getVin() + "  " + "Year: " + vehicle.getYear() + "  " + "Make: " + vehicle.getMake() + "  " + "Model: " + vehicle.getModel() + "  " + "Vehicle type: " + vehicle.getVehicleType() + "  " + "Color: " + vehicle.getColor() + "  " + "Odometer: " + vehicle.getOdometer() + "  " + "Price: $" + vehicle.getPrice());
+        }
+
+        System.out.println("Total is : $" + total);
+
+
+    }
+
+    public void addToCart(ArrayList<Vehicle> inventory) {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the VIN to add to cart ");
+        int VIN = s.nextInt();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getVin() == VIN) {
+                cart.add(vehicle);
+                total += vehicle.getPrice();
+                break;
+            }
+        }
+        System.out.println("Vehicle Added to Cart ");
+
+    }
+
+
 }
-
-
-
 
 
 
