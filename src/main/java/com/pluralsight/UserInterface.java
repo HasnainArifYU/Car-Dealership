@@ -45,11 +45,10 @@ public class UserInterface {
                     break;
                 case 2:
                     System.out.println("You selected Option 2.");
-                    // Add more logic here as needed
-                    // break;
+                    prcocessGetByMakeModelRequest();
+                    break;
                 case 3:
                     System.out.println("You selected Option 3.");
-                    // Add more logic here as needed
                     break;
                 case 4:
 
@@ -59,7 +58,7 @@ public class UserInterface {
 
                 case 7:
                     System.out.println("You selected Option 7.");
-                    displayVehicles(this.dealership.getAllVehicles());
+                    processAllVehiclesRequest();
                     break;
                 case 8:
 
@@ -100,5 +99,18 @@ public class UserInterface {
             }
         }
 
+        public void prcocessGetByMakeModelRequest() {
+            Scanner s = new Scanner(System.in);
+            System.out.println("Please Enter the Make ");
+            String make = s.nextLine();
+            System.out.println("Please Enter the Model ");
+            String model = s.nextLine();
+            ArrayList<Vehicle> carsByPrice = dealership.getVehicleByMakeModel(make, model);
+            for (Vehicle vehicle: carsByPrice){
+                System.out.println("VIN: "+vehicle.getVin()+"  "+"Year: "+vehicle.getYear()+"  "+"Make: "+vehicle.getMake()+"  "+"Model: "+vehicle.getModel()+"  "+"Vehicle type: "+vehicle.getVehicleType()+"  "+"Color: "+vehicle.getColor()+"  "+"Odometer: "+vehicle.getOdometer()+"  "+"Price: $"+vehicle.getPrice());
+            }
+        }
+        }
 
-}
+
+

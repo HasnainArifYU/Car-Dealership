@@ -37,19 +37,49 @@ public class Dealership {
     }
 
     public ArrayList<Vehicle> getVehicleByMakeModel(String make, String model) {
-        return null;
+        ArrayList<Vehicle> carsByMakeModel = new ArrayList<Vehicle>();
+        for (Vehicle car: inventory) {
+            if(car.getMake().equalsIgnoreCase(make) && car.getModel().equalsIgnoreCase(model)) {
+                carsByMakeModel.add(car);
+            }
+        }
+        return carsByMakeModel;
     }
-    public ArrayList<Vehicle> getVehiclesByYear(String min, String max) {
-        return null;
+    public ArrayList<Vehicle> getVehiclesByYear(int min, int max) {
+        ArrayList<Vehicle> carsByYear = new ArrayList<Vehicle>();
+        for (Vehicle car: inventory) {
+            if(car.getYear()>=min && car.getYear()<=max) {
+                carsByYear.add(car);
+            }
+        }
+        return carsByYear;
     }
     public ArrayList<Vehicle> getVehiclesByColor(String color) {
-        return null;
+        ArrayList<Vehicle> carsByColor = new ArrayList<Vehicle>();
+        for (Vehicle car: inventory) {
+            if(car.getColor().equalsIgnoreCase(color)) {
+                carsByColor.add(car);
+            }
+        }
+        return carsByColor;
     }
     public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
-        return null;
+        ArrayList<Vehicle> carsByMileage = new ArrayList<Vehicle>();
+        for (Vehicle car: inventory) {
+            if(car.getOdometer()>=min && car.getOdometer()<=max) {
+                carsByMileage.add(car);
+            }
+        }
+        return carsByMileage;
     }
     public ArrayList<Vehicle> getVehiclesByType(String vehicleType) {
-        return null;
+        ArrayList<Vehicle> carsByType = new ArrayList<Vehicle>();
+        for (Vehicle car: inventory) {
+            if(car.getVehicleType().equalsIgnoreCase(vehicleType)) {
+                carsByType.add(car);
+            }
+        }
+        return carsByType;
     }
     public void removeVehicle(Vehicle vehicle){
         //inventory.remove(vehicle);

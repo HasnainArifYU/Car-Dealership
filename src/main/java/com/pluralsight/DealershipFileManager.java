@@ -7,13 +7,12 @@ public class DealershipFileManager {
     public Dealership getDealership() {
         String fileName = "dealership.csv";
         File file = new File(fileName);
-        // Check if the file exists. If it does not, create it.
         if (!file.exists()) {
             try {
-                file.createNewFile(); // This will create a new file if it does not exist
+                file.createNewFile();
             } catch (IOException e) {
                 System.out.println("An error occurred while trying to create a new file: " + e.getMessage());
-                return null; // Exit the method if file creation fails
+                return null;
             }
         }
         Dealership dealership = null;
