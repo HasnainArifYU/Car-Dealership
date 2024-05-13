@@ -82,7 +82,7 @@ public class Dealership {
         return carsByType;
     }
     public void removeVehicle(Vehicle vehicle){
-        //inventory.remove(vehicle);
+        inventory.remove(vehicle);
     }
 
 
