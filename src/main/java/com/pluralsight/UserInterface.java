@@ -45,13 +45,15 @@ public class UserInterface {
                     break;
                 case 2:
                     System.out.println("You selected Option 2.");
-                    prcocessGetByMakeModelRequest();
+                    processGetByMakeModelRequest();
                     break;
                 case 3:
                     System.out.println("You selected Option 3.");
+                    processGetByYearRequest();
                     break;
                 case 4:
-
+                    processGetByColorRequest();
+                    break;
                 case 5:
 
                 case 6:
@@ -99,7 +101,7 @@ public class UserInterface {
             }
         }
 
-        public void prcocessGetByMakeModelRequest() {
+        public void processGetByMakeModelRequest() {
             Scanner s = new Scanner(System.in);
             System.out.println("Please Enter the Make ");
             String make = s.nextLine();
@@ -110,7 +112,33 @@ public class UserInterface {
                 System.out.println("VIN: "+vehicle.getVin()+"  "+"Year: "+vehicle.getYear()+"  "+"Make: "+vehicle.getMake()+"  "+"Model: "+vehicle.getModel()+"  "+"Vehicle type: "+vehicle.getVehicleType()+"  "+"Color: "+vehicle.getColor()+"  "+"Odometer: "+vehicle.getOdometer()+"  "+"Price: $"+vehicle.getPrice());
             }
         }
+        public void processGetByYearRequest(){
+            Scanner s = new Scanner(System.in);
+            System.out.println("Please Enter the Year Range ");
+            System.out.println("Start Year : ");
+            int year1 = s.nextInt();
+            System.out.println("End Year : ");
+            int year2 = s.nextInt();
+
+            ArrayList<Vehicle> carsByPrice = dealership.getVehiclesByYear(year1, year2);
+            for (Vehicle vehicle: carsByPrice){
+                System.out.println("VIN: "+vehicle.getVin()+"  "+"Year: "+vehicle.getYear()+"  "+"Make: "+vehicle.getMake()+"  "+"Model: "+vehicle.getModel()+"  "+"Vehicle type: "+vehicle.getVehicleType()+"  "+"Color: "+vehicle.getColor()+"  "+"Odometer: "+vehicle.getOdometer()+"  "+"Price: $"+vehicle.getPrice());
+            }
         }
+
+        public void processGetByColorRequest() {
+                Scanner s = new Scanner(System.in);
+                System.out.println("Please Enter the Color ");
+                String color = s.nextLine();
+                ArrayList<Vehicle> carsByPrice = dealership.getVehiclesByColor(color);
+                for (Vehicle vehicle: carsByPrice){
+                    System.out.println("VIN: "+vehicle.getVin()+"  "+"Year: "+vehicle.getYear()+"  "+"Make: "+vehicle.getMake()+"  "+"Model: "+vehicle.getModel()+"  "+"Vehicle type: "+vehicle.getVehicleType()+"  "+"Color: "+vehicle.getColor()+"  "+"Odometer: "+vehicle.getOdometer()+"  "+"Price: $"+vehicle.getPrice());
+                }
+            }
+        }
+
+
+
 
 
 
