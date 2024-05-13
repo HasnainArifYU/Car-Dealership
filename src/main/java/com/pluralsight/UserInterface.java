@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
+import static com.pluralsight.DealershipFileManager.saveDealership;
+
 public class UserInterface {
 
     private Dealership dealership;
@@ -74,6 +76,7 @@ public class UserInterface {
                     break;
                 case 99:
                     System.out.println("Exiting...");
+                    saveDealership(dealership);
                     continueRunning = false;
                     break;
                 default:

@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class DealershipFileManager {
 
@@ -44,6 +45,17 @@ public class DealershipFileManager {
         }
         return dealership;
 
+    }
+    public static void saveDealership(Dealership dealership) {
+        ArrayList<Vehicle> updatedList = dealership.getAllVehicles();
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("dealership.csv"))) {
+            for (Vehicle vehicle : updatedList) {
+                writer.write(vehicle.getVin() + "|" + vehicle.getYear() + "|" + vehicle.getMake() + "|" + vehicle.getModel()+ "|" + vehicle.getVehicleType()+ "|" + vehicle.getColor()+ "|" + vehicle.getOdometer()+ "|" + vehicle.getPrice());
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
