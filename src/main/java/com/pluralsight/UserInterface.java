@@ -24,18 +24,24 @@ public class UserInterface {
 
         while (continueRunning) {
             System.out.println("Menu:");
-            System.out.println("1. Display All Vehicles ");
-            System.out.println("2. Option 2");
-            System.out.println("3. Option 3");
-            System.out.println("4. Exit");
+            System.out.println("1. Find Vehicles By Price Range ");
+            System.out.println("2. Find Vehicles By Make/Model ");
+            System.out.println("3. Find Vehicles By Years ");
+            System.out.println("4. Find Vehicles By Color ");
+            System.out.println("5. Find Vehicles By Mileage Range ");
+            System.out.println("6. Find Vehicles By Type ");
+            System.out.println("7. LIST ALL VEHICLES ");
+            System.out.println("8. Add a Vehicle ");
+            System.out.println("9. Remove a Vehicle ");
+            System.out.println("99. QUIT ");
+
 
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
 
             switch (choice) {
                 case 1:
-                    System.out.println("You selected Option 1.");
-                    displayVehicles(this.dealership.getAllVehicles());
+                    processGetByPriceRequest();
                     break;
                 case 2:
                     System.out.println("You selected Option 2.");
@@ -46,6 +52,20 @@ public class UserInterface {
                     // Add more logic here as needed
                     break;
                 case 4:
+
+                case 5:
+
+                case 6:
+
+                case 7:
+                    System.out.println("You selected Option 7.");
+                    displayVehicles(this.dealership.getAllVehicles());
+                    break;
+                case 8:
+
+                case 9:
+
+                case 99:
                     System.out.println("Exiting...");
                     continueRunning = false;
                     break;
@@ -67,6 +87,17 @@ public class UserInterface {
         public void processAllVehiclesRequest(){
             ArrayList<Vehicle> inventory = this.dealership.getAllVehicles();
             displayVehicles(inventory);
+        }
+        public void processGetByPriceRequest() {
+            Scanner s = new Scanner(System.in);
+            System.out.println("Please Enter the Minimum Price ");
+            double min = s.nextDouble();
+            System.out.println("Now Please Enter the Maximum Price ");
+            double max = s.nextDouble();
+            ArrayList<Vehicle> carsByPrice = dealership.getVehicleByPrice(min, max);
+            for (Vehicle vehicle: carsByPrice){
+                System.out.println("VIN: "+vehicle.getVin()+"  "+"Year: "+vehicle.getYear()+"  "+"Make: "+vehicle.getMake()+"  "+"Model: "+vehicle.getModel()+"  "+"Vehicle type: "+vehicle.getVehicleType()+"  "+"Color: "+vehicle.getColor()+"  "+"Odometer: "+vehicle.getOdometer()+"  "+"Price: $"+vehicle.getPrice());
+            }
         }
 
 

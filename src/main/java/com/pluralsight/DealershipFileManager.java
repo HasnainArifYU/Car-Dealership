@@ -5,7 +5,7 @@ import java.io.*;
 public class DealershipFileManager {
 
     public Dealership getDealership() {
-        String fileName = "inventory.csv";
+        String fileName = "dealership.csv";
         File file = new File(fileName);
         // Check if the file exists. If it does not, create it.
         if (!file.exists()) {
