@@ -34,7 +34,8 @@ public class UserInterface {
             System.out.println("7. LIST ALL VEHICLES ");
             System.out.println("8. Add a Vehicle ");
             System.out.println("9. Remove a Vehicle ");
-            System.out.println("99. QUIT ");
+            System.out.println("10. View CART & Checkout");
+            System.out.println("99. Save and QUIT ");
 
 
             System.out.print("Enter your choice: ");
@@ -101,10 +102,16 @@ public class UserInterface {
     }
 
     private void displayVehicles(ArrayList<Vehicle> vehicles) {
+        System.out.printf("%-12s %-6s %-10s %-12s %-12s %-10s %-8s %-8s %n",
+                "VIN", "Year", "Make", "Model", "Type", "Color", "Odometer", "Price");
+
         for (Vehicle vehicle : vehicles) {
-            System.out.println("VIN: " + vehicle.getVin() + "  " + "Year: " + vehicle.getYear() + "  " + "Make: " + vehicle.getMake() + "  " + "Model: " + vehicle.getModel() + "  " + "Vehicle type: " + vehicle.getVehicleType() + "  " + "Color: " + vehicle.getColor() + "  " + "Odometer: " + vehicle.getOdometer() + "  " + "Price: $" + vehicle.getPrice());
+            System.out.printf("%-12s %-6d %-10s %-12s %-12s %-10s %-8d $%.2f %n",
+                    vehicle.getVin(), vehicle.getYear(), vehicle.getMake(), vehicle.getModel(),
+                    vehicle.getVehicleType(), vehicle.getColor(), vehicle.getOdometer(), vehicle.getPrice());
         }
     }
+
 
     public void processAllVehiclesRequest() {
         ArrayList<Vehicle> inventory = this.dealership.getAllVehicles();
@@ -119,10 +126,16 @@ public class UserInterface {
         System.out.println("Now Please Enter the Maximum Price ");
         double max = s.nextDouble();
         ArrayList<Vehicle> carsByPrice = dealership.getVehicleByPrice(min, max);
+        System.out.printf("%-12s %-6s %-10s %-12s %-12s %-10s %-8s %-8s %n",
+                "VIN", "Year", "Make", "Model", "Type", "Color", "Odometer", "Price");
+
         for (Vehicle vehicle : carsByPrice) {
-            System.out.println("VIN: " + vehicle.getVin() + "  " + "Year: " + vehicle.getYear() + "  " + "Make: " + vehicle.getMake() + "  " + "Model: " + vehicle.getModel() + "  " + "Vehicle type: " + vehicle.getVehicleType() + "  " + "Color: " + vehicle.getColor() + "  " + "Odometer: " + vehicle.getOdometer() + "  " + "Price: $" + vehicle.getPrice());
+            System.out.printf("%-12s %-6d %-10s %-12s %-12s %-10s %-8d $%.2f %n",
+                    vehicle.getVin(), vehicle.getYear(), vehicle.getMake(), vehicle.getModel(),
+                    vehicle.getVehicleType(), vehicle.getColor(), vehicle.getOdometer(), vehicle.getPrice());
         }
     }
+
 
     public void processGetByMakeModelRequest() {
         Scanner s = new Scanner(System.in);
@@ -131,8 +144,13 @@ public class UserInterface {
         System.out.println("Please Enter the Model ");
         String model = s.nextLine();
         ArrayList<Vehicle> carsByMakeModel = dealership.getVehicleByMakeModel(make, model);
+        System.out.printf("%-12s %-6s %-10s %-12s %-12s %-10s %-8s %-8s %n",
+                "VIN", "Year", "Make", "Model", "Type", "Color", "Odometer", "Price");
+
         for (Vehicle vehicle : carsByMakeModel) {
-            System.out.println("VIN: " + vehicle.getVin() + "  " + "Year: " + vehicle.getYear() + "  " + "Make: " + vehicle.getMake() + "  " + "Model: " + vehicle.getModel() + "  " + "Vehicle type: " + vehicle.getVehicleType() + "  " + "Color: " + vehicle.getColor() + "  " + "Odometer: " + vehicle.getOdometer() + "  " + "Price: $" + vehicle.getPrice());
+            System.out.printf("%-12s %-6d %-10s %-12s %-12s %-10s %-8d $%.2f %n",
+                    vehicle.getVin(), vehicle.getYear(), vehicle.getMake(), vehicle.getModel(),
+                    vehicle.getVehicleType(), vehicle.getColor(), vehicle.getOdometer(), vehicle.getPrice());
         }
     }
 
@@ -145,8 +163,13 @@ public class UserInterface {
         int year2 = s.nextInt();
 
         ArrayList<Vehicle> carsByYear = dealership.getVehiclesByYear(year1, year2);
+        System.out.printf("%-12s %-6s %-10s %-12s %-12s %-10s %-8s %-8s %n",
+                "VIN", "Year", "Make", "Model", "Type", "Color", "Odometer", "Price");
+
         for (Vehicle vehicle : carsByYear) {
-            System.out.println("VIN: " + vehicle.getVin() + "  " + "Year: " + vehicle.getYear() + "  " + "Make: " + vehicle.getMake() + "  " + "Model: " + vehicle.getModel() + "  " + "Vehicle type: " + vehicle.getVehicleType() + "  " + "Color: " + vehicle.getColor() + "  " + "Odometer: " + vehicle.getOdometer() + "  " + "Price: $" + vehicle.getPrice());
+            System.out.printf("%-12s %-6d %-10s %-12s %-12s %-10s %-8d $%.2f %n",
+                    vehicle.getVin(), vehicle.getYear(), vehicle.getMake(), vehicle.getModel(),
+                    vehicle.getVehicleType(), vehicle.getColor(), vehicle.getOdometer(), vehicle.getPrice());
         }
     }
 
@@ -155,8 +178,12 @@ public class UserInterface {
         System.out.println("Please Enter the Color ");
         String color = s.nextLine();
         ArrayList<Vehicle> carsByColor = dealership.getVehiclesByColor(color);
+        System.out.printf("%-12s %-6s %-10s %-12s %-12s %-10s %-8s %-8s %n",
+                "VIN", "Year", "Make", "Model", "Type", "Color", "Odometer", "Price");
         for (Vehicle vehicle : carsByColor) {
-            System.out.println("VIN: " + vehicle.getVin() + "  " + "Year: " + vehicle.getYear() + "  " + "Make: " + vehicle.getMake() + "  " + "Model: " + vehicle.getModel() + "  " + "Vehicle type: " + vehicle.getVehicleType() + "  " + "Color: " + vehicle.getColor() + "  " + "Odometer: " + vehicle.getOdometer() + "  " + "Price: $" + vehicle.getPrice());
+            System.out.printf("%-12s %-6d %-10s %-12s %-12s %-10s %-8d $%.2f %n",
+                    vehicle.getVin(), vehicle.getYear(), vehicle.getMake(), vehicle.getModel(),
+                    vehicle.getVehicleType(), vehicle.getColor(), vehicle.getOdometer(), vehicle.getPrice());
         }
     }
 
@@ -169,20 +196,31 @@ public class UserInterface {
         int miles2 = s.nextInt();
 
         ArrayList<Vehicle> carsbyMiles = dealership.getVehiclesByMileage(miles1, miles2);
+        System.out.printf("%-12s %-6s %-10s %-12s %-12s %-10s %-8s %-8s %n",
+                "VIN", "Year", "Make", "Model", "Type", "Color", "Odometer", "Price");
         for (Vehicle vehicle : carsbyMiles) {
-            System.out.println("VIN: " + vehicle.getVin() + "  " + "Year: " + vehicle.getYear() + "  " + "Make: " + vehicle.getMake() + "  " + "Model: " + vehicle.getModel() + "  " + "Vehicle type: " + vehicle.getVehicleType() + "  " + "Color: " + vehicle.getColor() + "  " + "Odometer: " + vehicle.getOdometer() + "  " + "Price: $" + vehicle.getPrice());
+            System.out.printf("%-12s %-6d %-10s %-12s %-12s %-10s %-8d $%.2f %n",
+                    vehicle.getVin(), vehicle.getYear(), vehicle.getMake(), vehicle.getModel(),
+                    vehicle.getVehicleType(), vehicle.getColor(), vehicle.getOdometer(), vehicle.getPrice());
         }
     }
+
 
     public void processGetByTypeRequest() {
         Scanner s = new Scanner(System.in);
         System.out.println("Please Enter the Vehicle type ");
         String type = s.nextLine();
         ArrayList<Vehicle> carsByType = dealership.getVehiclesByType(type);
+        System.out.printf("%-12s %-6s %-10s %-12s %-12s %-10s %-8s %-8s %n",
+                "VIN", "Year", "Make", "Model", "Type", "Color", "Odometer", "Price");
+
         for (Vehicle vehicle : carsByType) {
-            System.out.println("VIN: " + vehicle.getVin() + "  " + "Year: " + vehicle.getYear() + "  " + "Make: " + vehicle.getMake() + "  " + "Model: " + vehicle.getModel() + "  " + "Vehicle type: " + vehicle.getVehicleType() + "  " + "Color: " + vehicle.getColor() + "  " + "Odometer: " + vehicle.getOdometer() + "  " + "Price: $" + vehicle.getPrice());
+            System.out.printf("%-12s %-6d %-10s %-12s %-12s %-10s %-8d $%.2f %n",
+                    vehicle.getVin(), vehicle.getYear(), vehicle.getMake(), vehicle.getModel(),
+                    vehicle.getVehicleType(), vehicle.getColor(), vehicle.getOdometer(), vehicle.getPrice());
         }
     }
+
 
     public void processAddVehiclesRequest() {
         Scanner s = new Scanner(System.in);
@@ -237,8 +275,13 @@ public class UserInterface {
     }
 
     public void displayCart(ArrayList<Vehicle> cart) {
+        System.out.printf("%-12s %-6s %-10s %-12s %-12s %-10s %-8s %-8s %n",
+                "VIN", "Year", "Make", "Model", "Type", "Color", "Odometer", "Price");
+
         for (Vehicle vehicle : cart) {
-            System.out.println("VIN: " + vehicle.getVin() + "  " + "Year: " + vehicle.getYear() + "  " + "Make: " + vehicle.getMake() + "  " + "Model: " + vehicle.getModel() + "  " + "Vehicle type: " + vehicle.getVehicleType() + "  " + "Color: " + vehicle.getColor() + "  " + "Odometer: " + vehicle.getOdometer() + "  " + "Price: $" + vehicle.getPrice());
+            System.out.printf("%-12s %-6d %-10s %-12s %-12s %-10s %-8d $%.2f %n",
+                    vehicle.getVin(), vehicle.getYear(), vehicle.getMake(), vehicle.getModel(),
+                    vehicle.getVehicleType(), vehicle.getColor(), vehicle.getOdometer(), vehicle.getPrice());
         }
 
         System.out.println("Total is : $" + total);
