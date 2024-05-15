@@ -1,6 +1,6 @@
 # Car Dealership
 
-## Description of the Project
+## Description
 
 This project is a console-based application designed for use in car dealerships. It aids salespeople and managers in managing vehicle inventories efficiently. With a user-friendly interface, the application allows for quick searches based on multiple criteria, easy inventory updates, and a comprehensive listing of all vehicles.
 
@@ -55,9 +55,7 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 Include screenshots or GIFs that show your application in action. Use tools like [Giphy Capture](https://giphy.com/apps/giphycapture) to record a GIF of your application.
 
-![Application Screenshot](path/to/your/screenshot.png)
 ![Screenshot 2024-05-15 150347](https://github.com/HasnainArifYU/Car-Dealership/assets/166551521/373d8fd1-f695-4ffc-8f1c-caaf04b99a4f)
-
 ![Screenshot 2024-05-15 150408](https://github.com/HasnainArifYU/Car-Dealership/assets/166551521/47796784-2bba-4120-9337-4f900875b26a)
 ![Screenshot 2024-05-15 150507](https://github.com/HasnainArifYU/Car-Dealership/assets/166551521/94d1e4bc-4e95-49d7-ac49-e216b29e34c3)
 ![Screenshot 2024-05-15 150619](https://github.com/HasnainArifYU/Car-Dealership/assets/166551521/832c8c86-93c0-455b-b4b4-e87e05f61955)
