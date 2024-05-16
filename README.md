@@ -6,8 +6,6 @@ This project is a console-based application designed for use in car dealerships.
 
 
 
-
-
 ## User Stories
 
 
@@ -79,5 +77,5 @@ List resources such as tutorials, articles, or documentation that helped you dur
 
 Express gratitude towards those who provided help, guidance, or resources:
 
-- Thank you to [Raymond Maroun] for continuous support and guidance.
+- Thank you to Mr. Raymond Maroun for continuous support and guidance.
 - A special thanks to all teammates for their dedication and teamwork.
